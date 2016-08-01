@@ -27,9 +27,6 @@ fsls : $(OBJECTS)
 
 $(OBJECTS) : $(HEADERS)
 
-$(DOCS) : 
-	pandoc -s -t man fsls.1.md -o man/man1/fsls.1
-	
 $(EVERYTHING) :
 	${MAKE} -C $@
 
