@@ -1,18 +1,39 @@
-# BDUtils Makefile for all sub-projects
+# FSLS Makefile
 #
 # @file
 #
 
 #include version
 
+SOURCES = fsls.c
+OBJECTS = quickcount.o getdirent.o
+HEADERS = fsls.h
+
+DevFLAGS = -g -Wall -I. -include $(HEADERS)
+ProdFLAGS = -O3 -I. -include $(HEADERS)
+CFLAGS = $(DevFLAGS)
+LDFLAGS = -lpopt
+CC = c99
+OUTPUT = -o fsls
+
 DOCS = doc
 RPM = build
-PROJECTS = bdls
-EVERYTHING = $(PROJECTS) $(DOCS) $(RPM)
+PROJECT = fsls
+EVERYTHING = $(PROJECT) $(DOCS) $(RPM)
 
-.PHONY: all $(EVERYTHING)
+all: $(PROJECT)
 
-all: $(EVERYTHING)
+fsls : $(OBJECTS)
 
-$(EVERYTHING): 
+$(OBJECTS) : $(HEADERS)
+
+$(DOCS) : 
+	pandoc -s -t man fsls.1.md -o man/man1/fsls.1
+	
+$(EVERYTHING) :
 	${MAKE} -C $@
+
+.PHONY : clean
+
+clean : 
+	-rm -f $(PROJECT) $(OBJECTS)
