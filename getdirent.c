@@ -4,6 +4,8 @@
  *  fsls - statistical model fast/filesystem list
  *
  *  @see http://webcache.googleusercontent.com/search?q=cache:3yIPmymklX8J:be-n.com/spw/you-can-list-a-million-files-in-a-directory-but-not-with-ls.html+&cd=1&hl=en&ct=clnk&gl=us
+ *  ^^^^ this link can be accessed directly at:
+ *  @see http://be-n.com/spw/you-can-list-a-million-files-in-a-directory-but-not-with-ls.html
  *  @see getdents(2)
  *  @see nftw(3)
  *  @see fts(3)
